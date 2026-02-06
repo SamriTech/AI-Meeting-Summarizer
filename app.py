@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import pandas as pd
+import assemblyai as aai
 import plotly.express as px
 from utils.transcriber import transcribe_audio
 from utils.summarizer import summarize_transcript, extract_action_items
@@ -20,6 +21,14 @@ with st.sidebar:
     st.info("Comming soon: Customize AI behavior, choose different summarization styles, and more!")
 
 uploaded_file = st.file_uploader("Upload Audio", type=["wav", "mp3", "aac", "m4a"])
+
+# This line checks the Cloud Secrets first, then your local .env
+api_key = st.secrets.get("ASSEMBLYAI_API_KEY") or os.getenv("ASSEMBLYAI_API_KEY")
+
+if api_key:
+    aai.settings.api_key = api_key
+else:
+    st.error("API Key not found. Please add it to Streamlit Secrets!")
 
 if uploaded_file:
     # Ensure data directory exists

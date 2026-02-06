@@ -2,11 +2,6 @@ import os
 import assemblyai as aai
 from dotenv import load_dotenv
 
-load_dotenv()
-
-# Configure your API key
-aai.settings.api_key = os.getenv("ASSEMBLYAI_API_KEY")
-
 def transcribe_audio(file_path):
     """
     Transcribes audio using AssemblyAI with Speaker Diarization enabled.
@@ -20,10 +15,6 @@ def transcribe_audio(file_path):
             speaker_labels=True,
             speech_models=["universal-3-pro", "universal"]
         )
-        
-        transcriber = aai.Transcriber()
-        print(f"Processing audio: {file_path}...")
-        transcript = transcriber.transcribe(file_path, config=config)
         
         # 2. Upload and transcribe
         transcriber = aai.Transcriber()
