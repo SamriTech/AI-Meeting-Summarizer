@@ -1,0 +1,7 @@
+streamlit
+openai
+openai-whisper
+reportlab
+python-dotenv
+ffmpeg-python
+watchdog
