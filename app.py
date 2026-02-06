@@ -17,7 +17,7 @@ if 'action_items' not in st.session_state: st.session_state['action_items'] = []
 # Sidebar for additional info
 with st.sidebar:
     st.header("Settings & Info")
-    st.info("This version uses AssemblyAI for Speaker Labels and Groq/Gemini for Summarization.")
+    st.info("Comming soon: Customize AI behavior, choose different summarization styles, and more!")
 
 uploaded_file = st.file_uploader("Upload Audio", type=["wav", "mp3", "aac", "m4a"])
 

@@ -1,7 +1,8 @@
 streamlit
-openai
-openai-whisper
-reportlab
+assemblyai
 python-dotenv
-ffmpeg-python
-watchdog
+librosa
+groq
+fpdf2
+pandas
+plotly
