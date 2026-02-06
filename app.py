@@ -30,6 +30,12 @@ if api_key:
 else:
     st.error("API Key not found. Please add it to Streamlit Secrets!")
 
+# Add a Reset Button in Sidebar
+if st.sidebar.button("🗑️ Clear Current Session"):
+    for key in ['transcript', 'summary', 'action_items']:
+        st.session_state[key] = "" if key != 'action_items' else []
+    st.rerun()
+
 if uploaded_file:
     # Ensure data directory exists
     if not os.path.exists("data"): os.makedirs("data")

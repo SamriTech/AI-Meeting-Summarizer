@@ -3,8 +3,6 @@ import re # This is needed for the parsing logic
 from groq import Groq
 from dotenv import load_dotenv
 
-load_dotenv()
-
 def summarize_transcript(transcript_text):
     if not transcript_text:
         return "No transcript found to summarize."
